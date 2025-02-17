@@ -1,9 +1,9 @@
 import { View, Text, TouchableOpacity } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
-import { colors } from "@/styles/colors";
+import { colors } from "@/src/styles/colors";
 import { router } from "expo-router";
-import { Categories } from "@/components/categories";
+import { Categories } from "@/src/components/categories";
 
 export default function Add() {
     return (

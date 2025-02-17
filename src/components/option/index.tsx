@@ -1,7 +1,7 @@
 import { TouchableOpacityProps, View, Text, TouchableOpacity } from "react-native"
 import { styles } from "./styles"
 import { MaterialIcons } from "@expo/vector-icons";
-import { colors } from "@/styles/colors";
+import { colors } from "@/src/styles/colors";
 
 type OptionProps = TouchableOpacityProps & {
     name: string;

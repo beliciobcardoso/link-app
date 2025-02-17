@@ -1,7 +1,7 @@
 import { View, Text, Pressable, PressableProps } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
-import { colors } from "@/styles/colors";
+import { colors } from "@/src/styles/colors";
 
 type CategoryProps = PressableProps & {
     id?: string;

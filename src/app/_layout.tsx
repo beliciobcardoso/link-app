@@ -1,15 +1,19 @@
-import { colors } from "@/styles/colors";
+import { colors } from "@/src/styles/colors";
+import "@/global.css";
+import { GluestackUIProvider } from "@/components/ui/gluestack-ui-provider";
 import { Stack } from "expo-router";
 
 export default function Layout() {
     const backgroundColor = colors.gray[950]
-    
+
     return (
-        <Stack screenOptions={{
-            headerShown: false,
-            contentStyle: {
-                backgroundColor,
-            },
-        }} />
+        <GluestackUIProvider mode="light">
+            <Stack screenOptions={{
+                headerShown: false,
+                contentStyle: {
+                    backgroundColor,
+                },
+            }} />
+        </GluestackUIProvider>
     );
 }

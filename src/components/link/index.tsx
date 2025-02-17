@@ -1,7 +1,7 @@
 import { TouchableOpacity, Text, View } from "react-native";
 import { styles } from "./styles";
 import { MaterialIcons } from "@expo/vector-icons";
-import { colors } from "@/styles/colors";
+import { colors } from "@/src/styles/colors";
 
 type LinkProps = {
     name: string;
