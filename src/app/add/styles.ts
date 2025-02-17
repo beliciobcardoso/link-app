@@ -22,5 +22,10 @@ export const styles = StyleSheet.create({
     color: colors.gray[400],
     fontSize: 14,
     paddingHorizontal: 20,
+  },
+  form: {
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    gap: 20,
   }
 });
