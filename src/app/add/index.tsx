@@ -7,24 +7,33 @@ import { Categories } from "@/src/components/categories";
 import { Input } from "@/src/components/input";
 import { Button } from "@/src/components/button";
 import { useState } from "react";
+import { linkStorage } from "@/src/storage/link-storage";
 
 export default function Add() {
     const [category, setCategory] = useState<string>('');
     const [name, setName] = useState<string>('');
     const [url, setUrl] = useState<string>('');
 
-    function handleAdd() {
-        if (!category) {
-            return Alert.alert("Categoria", 'Selecione uma categoria');
-        }
-        if (!name.trim()) {
-            return Alert.alert("Nome", 'Digite um nome');
-        }
-        if (!url.trim()) {
-            return Alert.alert("URL", 'Digite uma URL');
-        }
+    async function handleAdd() {
+        try {
+            if (!category) {
+                return Alert.alert("Categoria", 'Selecione uma categoria');
+            }
+            if (!name.trim()) {
+                return Alert.alert("Nome", 'Digite um nome');
+            }
+            if (!url.trim()) {
+                return Alert.alert("URL", 'Digite uma URL');
+            }
 
-        console.log({ category, name, url });
+            await linkStorage.addLink({ id: new Date().getTime().toString(), category, name, url });            
+            router.reload();
+
+            // console.log({ category, name, url });
+        } catch (error) {
+            Alert.alert("Erro", "Erro ao adicionar link");
+            console.log(error);
+        }
     }
 
 
@@ -42,7 +51,7 @@ export default function Add() {
 
             <View style={styles.form}>
                 <Input placeholder="Nome" onChangeText={setName} />
-                <Input placeholder="Url" onChangeText={setUrl} />
+                <Input placeholder="Url" onChangeText={setUrl} autoCapitalize="none" />
                 <Button title="Adicionar" onPress={handleAdd} />
             </View>
         </View>
