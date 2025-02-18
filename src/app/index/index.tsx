@@ -6,9 +6,15 @@ import { Categories } from '@/src/components/categories';
 import Link from '@/src/components/link';
 import { Option } from '@/src/components/option';
 import { router } from 'expo-router';
+import { useState } from 'react';
+import { categories } from '@/src/utils/categories';
 
 
 export default function Index() {
+    const [category, setCategory] = useState<string>(categories[0].name);
+    const [modalVisible, setModalVisible] = useState<boolean>(false);
+
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -20,7 +26,7 @@ export default function Index() {
                     <MaterialIcons name="add-circle" size={32} color={colors.green[300]} />
                 </TouchableOpacity>
             </View>
-            <Categories />
+            <Categories onChange={setCategory} selected={category} />
 
             <FlatList
                 data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]}
