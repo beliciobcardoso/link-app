@@ -27,7 +27,13 @@ export default function Add() {
             }
 
             await linkStorage.addLink({ id: new Date().getTime().toString(), category, name, url });            
-            router.reload();
+            
+            Alert.alert("Sucesso", "Link adicionado com sucesso", [
+                {
+                    text: "Ok",
+                    onPress: () => router.back()
+                }
+            ]);
 
             // console.log({ category, name, url });
         } catch (error) {

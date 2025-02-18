@@ -49,6 +49,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+        marginBottom: 16,
     },
     modalTitle: {
         color: colors.gray[900],
@@ -56,6 +57,11 @@ export const styles = StyleSheet.create({
     },
     modalText: {
         color: colors.gray[900],
+        fontSize: 16,
+        marginBottom: 8,
+    },
+    modalUrl: {
+        color: colors.gray[500],
         fontSize: 16,
         marginBottom: 8,
     },

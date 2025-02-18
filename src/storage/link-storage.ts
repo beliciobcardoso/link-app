@@ -27,4 +27,29 @@ async function addLink(newLink: LinkStorage): Promise<void> {
     }
 }
 
-export const linkStorage = { getLinks, addLink };
+async function removeLink(id: string): Promise<void> {
+    try {
+        const links = await getLinks();
+        const newLinks = links.filter(link => link.id !== id);
+        await AsyncStorage.setItem(LINK_STORAGE_KEY, JSON.stringify(newLinks));
+    } catch (error) {
+        throw new Error("Error removing link");
+    }
+}
+
+async function updateLink(updatedLink: LinkStorage): Promise<void> {
+    try {
+        const links = await getLinks();
+        const newLinks = links.map(link => {
+            if (link.id === updatedLink.id) {
+                return updatedLink;
+            }
+            return link;
+        });
+        await AsyncStorage.setItem(LINK_STORAGE_KEY, JSON.stringify(newLinks));
+    } catch (error) {
+        throw new Error("Error updating link");
+    }
+}
+
+export const linkStorage = { getLinks, addLink, removeLink };
