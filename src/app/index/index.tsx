@@ -30,7 +30,7 @@ export default function Index() {
 
     async function handleOpenPress() {
         try {
-            await Linking.openURL(link.url);
+            await Linking.canOpenURL(link.url);
             setModalVisible(false);
         } catch (error) {
             Alert.alert("Erro", "Erro ao abrir link");
